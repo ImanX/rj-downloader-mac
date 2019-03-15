@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Application-->
+        <scene sceneID="JPo-4y-FX3">
+            <objects>
+                <application id="hnw-xV-0zn" sceneMemberID="viewController">
+                    <menu key="mainMenu" title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
+                        <items>
+                            <menuItem title="RJ Downloader" id="1Xt-HY-uBw">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="RJ Downloader" systemMenu="apple" id="uQy-DD-JDr">
+                                    <items>
+                                        <menuItem title="About RJ Downloader" id="5kV-Vb-QxS">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="orderFrontStandardAboutPanel:" target="Ady-hI-5gd" id="Exp-CZ-Vem"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
+                                        <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW"/>
+                                        <menuItem isSeparatorItem="YES" id="wFC-TO-SCJ"/>
+                                        <menuItem title="Services" id="NMo-om-nkz">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="Services" systemMenu="services" id="hz9-B4-Xy5"/>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="4je-JR-u6R"/>
+                                        <menuItem title="Hide RJ Downloader" keyEquivalent="h" id="Olw-nP-bQN">
+                                            <connections>
+                                                <action selector="hide:" target="Ady-hI-5gd" id="PnN-Uc-m68"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Hide Others" keyEquivalent="h" id="Vdr-fp-XzO">
+                                            <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                            <connections>
+                                                <action selector="hideOtherApplications:" target="Ady-hI-5gd" id="VT4-aY-XCT"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Show All" id="Kd2-mp-pUS">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="unhideAllApplications:" target="Ady-hI-5gd" id="Dhg-Le-xox"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="kCx-OE-vgT"/>
+                                        <menuItem title="Quit RJ Downloader" keyEquivalent="q" id="4sb-4s-VLi">
+                                            <connections>
+                                                <action selector="terminate:" target="Ady-hI-5gd" id="Te7-pn-YzF"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem title="Help" id="wpr-3q-Mcd">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                            </menuItem>
+                        </items>
+                    </menu>
+                    <connections>
+                        <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
+                    </connections>
+                </application>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="RJ_Downloader" customModuleProvider="target"/>
+                <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
+                <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="75" y="0.0"/>
+        </scene>
+        <!--Status Bar View Controller-->
+        <scene sceneID="hIz-AP-VOD">
+            <objects>
+                <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="StatusBarViewController" id="XfG-lQ-9wD" customClass="StatusBarViewController" customModule="RJ_Downloader" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
+                        <rect key="frame" x="0.0" y="0.0" width="374" height="98"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView focusRingType="none" translatesAutoresizingMaskIntoConstraints="NO" id="cJK-8x-qDu" userLabel="UrlView">
+                                <rect key="frame" x="0.0" y="0.0" width="374" height="98"/>
+                                <subviews>
+                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DZk-PM-NyH">
+                                        <rect key="frame" x="20" y="56" width="334" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="334" id="7Wc-Z7-wNW"/>
+                                        </constraints>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="left" placeholderString="Please pase url of song" bezelStyle="round" id="tzn-da-c9U">
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jbx-4g-HIo">
+                                        <rect key="frame" x="14" y="13" width="101" height="32"/>
+                                        <buttonCell key="cell" type="push" title="Download" bezelStyle="rounded" alignment="center" state="on" borderStyle="border" inset="2" id="15t-iV-FHa">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="didDownloadClick:" target="XfG-lQ-9wD" id="ocA-RD-93s"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="DZk-PM-NyH" secondAttribute="trailing" constant="20" id="IRG-Cz-jIs"/>
+                                    <constraint firstItem="DZk-PM-NyH" firstAttribute="top" secondItem="cJK-8x-qDu" secondAttribute="top" constant="20" id="N9M-ww-dbo"/>
+                                    <constraint firstItem="DZk-PM-NyH" firstAttribute="leading" secondItem="cJK-8x-qDu" secondAttribute="leading" constant="20" id="h3g-cs-Mf3"/>
+                                    <constraint firstItem="jbx-4g-HIo" firstAttribute="leading" secondItem="cJK-8x-qDu" secondAttribute="leading" constant="20" id="whk-wM-S3P"/>
+                                    <constraint firstItem="jbx-4g-HIo" firstAttribute="top" secondItem="DZk-PM-NyH" secondAttribute="bottom" constant="15" id="yeg-vi-fOH"/>
+                                </constraints>
+                            </customView>
+                            <customView hidden="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8tG-t1-v5f" userLabel="progress view">
+                                <rect key="frame" x="0.0" y="0.0" width="374" height="98"/>
+                                <subviews>
+                                    <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="jRl-9H-QbF">
+                                        <rect key="frame" x="171" y="39" width="32" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="32" id="0Mc-P4-mii"/>
+                                            <constraint firstAttribute="height" constant="32" id="wTc-0q-czg"/>
+                                        </constraints>
+                                    </progressIndicator>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ng8-py-65r">
+                                        <rect key="frame" x="140" y="17" width="95" height="17"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="0%" id="MP0-mJ-zTj">
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="ng8-py-65r" secondAttribute="trailing" constant="141" id="Fcm-W2-ygn"/>
+                                    <constraint firstItem="ng8-py-65r" firstAttribute="top" secondItem="jRl-9H-QbF" secondAttribute="bottom" constant="5" id="amO-Tk-vA3"/>
+                                    <constraint firstItem="jRl-9H-QbF" firstAttribute="centerY" secondItem="8tG-t1-v5f" secondAttribute="centerY" constant="-6" id="en4-au-Lqz"/>
+                                    <constraint firstItem="ng8-py-65r" firstAttribute="leading" secondItem="8tG-t1-v5f" secondAttribute="leading" constant="142" id="uDy-gO-fdP"/>
+                                    <constraint firstItem="jRl-9H-QbF" firstAttribute="centerX" secondItem="8tG-t1-v5f" secondAttribute="centerX" id="wd9-iv-LlY"/>
+                                </constraints>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="cJK-8x-qDu" firstAttribute="bottom" secondItem="8tG-t1-v5f" secondAttribute="bottom" id="0Vi-xr-KkS"/>
+                            <constraint firstItem="cJK-8x-qDu" firstAttribute="leading" secondItem="8tG-t1-v5f" secondAttribute="leading" id="6Pb-kc-zJv"/>
+                            <constraint firstItem="cJK-8x-qDu" firstAttribute="top" secondItem="8tG-t1-v5f" secondAttribute="top" id="Ccu-ff-2AX"/>
+                            <constraint firstItem="8tG-t1-v5f" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="Hrk-Aa-L4w"/>
+                            <constraint firstAttribute="bottom" secondItem="8tG-t1-v5f" secondAttribute="bottom" id="Ipu-Ax-aW7"/>
+                            <constraint firstAttribute="trailing" secondItem="8tG-t1-v5f" secondAttribute="trailing" id="L7v-8c-g6x"/>
+                            <constraint firstItem="8tG-t1-v5f" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="wfe-SX-5TP"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="edtDownload" destination="DZk-PM-NyH" id="iyJ-w8-7uz"/>
+                        <outlet property="indicator" destination="jRl-9H-QbF" id="AXc-UZ-VJg"/>
+                        <outlet property="lblProgress" destination="ng8-py-65r" id="HKs-dx-R5J"/>
+                        <outlet property="mainView" destination="cJK-8x-qDu" id="egZ-1S-4PT"/>
+                        <outlet property="progressView" destination="8tG-t1-v5f" id="B65-lr-ffb"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="88" y="438"/>
+        </scene>
+    </scenes>
+</document>
