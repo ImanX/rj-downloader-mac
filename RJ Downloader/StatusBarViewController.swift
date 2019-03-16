@@ -8,12 +8,15 @@
 
 import Cocoa
 class StatusBarViewController: NSViewController{
+    
+    
+    
+    internal var statusBar:NSStatusItem!;
    
     @IBOutlet var edtDownload: NSTextField!
     @IBOutlet weak var lblProgress: NSTextField!
     @IBOutlet weak var progressView: NSView!
     @IBOutlet weak var mainView: NSView!
-    
     @IBOutlet weak var indicator: NSProgressIndicator!
     
     
@@ -65,10 +68,30 @@ class StatusBarViewController: NSViewController{
     }
     
     
+    
+    override func viewDidAppear() {
+        recognizerClipboard();
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         indicator.startAnimation(nil);
-       
+    }
+    
+    
+    
+    func recognizerClipboard() {
+        
+      let valueBoard =  NSPasteboard.general.pasteboardItems?.first?.string(forType: .string);
+        
+        guard let value = valueBoard else {
+            return;
+        }
+        
+        if let url = URL(string: value) , url.host == "www.radiojavan.com" {
+            edtDownload.stringValue = url.absoluteString;
+        }
+        
     }
     
     
@@ -78,12 +101,12 @@ class StatusBarViewController: NSViewController{
 }
 
 extension StatusBarViewController {
-    // MARK: Storyboard instantiation
-    static func freshController() -> StatusBarViewController {
+    static func freshController(status:NSStatusItem) -> StatusBarViewController {
         let storyboard = NSStoryboard(name: "Main", bundle: nil);
         guard let viewcontroller = storyboard.instantiateController(withIdentifier: "StatusBarViewController") as? StatusBarViewController else {
-            fatalError("Why cant i find QuotesViewController? - Check Main.storyboard")
+            fatalError("not find viewController");
         }
+        viewcontroller.statusBar = status;
         return viewcontroller
     }
 }

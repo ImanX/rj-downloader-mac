@@ -10,21 +10,27 @@ import Foundation
 import Cocoa
 class StatusBarProvider {
     
-    private let statusBar:NSStatusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength);
-    private let popover = NSPopover();
+    private let statusBar:NSStatusItem!;
+    private let popover:NSPopover!;
+    
+    
+    init() {
+        self.statusBar = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength);
+        self.popover = NSPopover();
+    }
 
     
     func create() {
         statusBar.button?.image = NSImage.init(named: NSImage.Name("ic_statubar"));
-        statusBar.button?.action = #selector(openPopover);
-        popover.contentViewController = StatusBarViewController.freshController();
+        statusBar.button?.action = #selector(openPopover(_:));
+       // popover.contentViewController = StatusBarViewController.freshController();
     }
     
     
 
     
     
-    @objc private func openPopover(){
+    @objc private func openPopover(_ sender:Any){
         if popover.isShown {
             popover.close();
         }else {

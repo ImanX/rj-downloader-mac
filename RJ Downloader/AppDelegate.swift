@@ -10,47 +10,47 @@ import Cocoa
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-
-
+    
+    
     private let statusBar:NSStatusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength);
     private let popover = NSPopover();
-    
+
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         statusBar.button?.image = NSImage.init(named: NSImage.Name("ic_statubar"));
-        statusBar.button?.action = #selector(create(_:))
-        popover.contentViewController = StatusBarViewController.freshController();
-
-
-
+        statusBar.button?.action = #selector(toggleStatusbar(_:))
+        popover.behavior = .transient;
+        popover.contentViewController = StatusBarViewController.freshController(status: statusBar);
     }
     
-    @objc func create(_ sender: Any?) {
+    @objc func toggleStatusbar(_ sender: Any?) {
         if popover.isShown {
             popover.close();
         }else {
             popover.show(relativeTo: (statusBar.button?.bounds)!, of: statusBar.button!, preferredEdge: NSRectEdge.maxY);
-        }    }
-
+        }
+        
+    }
+    
     
     func applicationWillTerminate(_ aNotification: Notification) {
     }
-
+    
     // MARK: - Core Data stack
-
+    
     lazy var persistentContainer: NSPersistentContainer = {
         /*
          The persistent container for the application. This implementation
          creates and returns a container, having loaded the store for the
          application to it. This property is optional since there are legitimate
          error conditions that could cause the creation of the store to fail.
-        */
+         */
         let container = NSPersistentContainer(name: "RJ_Downloader")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error {
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                 
+                
                 /*
                  Typical reasons for an error here include:
                  * The parent directory does not exist, cannot be created, or disallows writing.
@@ -64,13 +64,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         })
         return container
     }()
-
+    
     // MARK: - Core Data Saving and Undo support
-
+    
     @IBAction func saveAction(_ sender: AnyObject?) {
         // Performs the save action for the application, which is to send the save: message to the application's managed object context. Any encountered errors are presented to the user.
         let context = persistentContainer.viewContext
-
+        
         if !context.commitEditing() {
             NSLog("\(NSStringFromClass(type(of: self))) unable to commit editing before saving")
         }
@@ -84,12 +84,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             }
         }
     }
-
+    
     func windowWillReturnUndoManager(window: NSWindow) -> UndoManager? {
         // Returns the NSUndoManager for the application. In this case, the manager returned is that of the managed object context for the application.
         return persistentContainer.viewContext.undoManager
     }
-
+    
     func applicationShouldTerminate(_ sender: NSApplication) -> NSApplication.TerminateReply {
         // Save changes in the application's managed object context before the application terminates.
         let context = persistentContainer.viewContext
@@ -107,7 +107,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             try context.save()
         } catch {
             let nserror = error as NSError
-
+            
             // Customize this code block to include application-specific recovery steps.
             let result = sender.presentError(nserror)
             if (result) {
@@ -132,6 +132,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // If we got here, it is time to quit.
         return .terminateNow
     }
-
+    
 }
 
