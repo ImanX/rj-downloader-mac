@@ -12,38 +12,68 @@ class StatusBarViewController: NSViewController{
     
     
     internal var statusBar:NSStatusItem!;
-   
-    @IBOutlet var edtDownload: NSTextField!
-    @IBOutlet weak var lblProgress: NSTextField!
-    @IBOutlet weak var progressView: NSView!
-    @IBOutlet weak var mainView: NSView!
-    @IBOutlet weak var indicator: NSProgressIndicator!
+    @IBOutlet weak var container: NSView!
+    
+    
+    private lazy var queryViewController = storyboard?.instantiateController(withIdentifier: "QueryVC") as! QueryViewController;
+    private lazy var progressViewController = storyboard?.instantiateController(withIdentifier: "ProgressVC") as! ProgressViewController;
+    
     
     
     
     @IBAction func didDownloadClick(_ sender: NSButton) {
+    
+        
+    }
+    
+    override func viewDidAppear() {
+        super.viewDidAppear();
+        queryViewController.click {
+            self.startDownload();
+        }
+    }
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        addChild(queryViewController);
+        addChild(progressViewController);
+        setup(vc: queryViewController);
         
         
+    }
+    
+    func replace(vc:NSViewController) {
+        for view in container.subviews{
+            view.removeFromSuperview();
+        }
+        
+        self.container.addSubview(vc.view);
+    }
+    
+    func setup(vc:NSViewController)  {
+        vc.view.frame = self.container.bounds;
+        self.container.addSubview(vc.view);
+    }
+    
+    func startDownload() {
         
         
-        if let url = URL(string: edtDownload.stringValue) ,
+        let value = queryViewController.edtQuery.stringValue;
+        
+        if let url = URL(string: value) ,
             url.host != nil ,
             url.host == "www.radiojavan.com",
-            !edtDownload.stringValue.isEmpty{
-          
+            !value.isEmpty{
+            
+        
             
             
+            replace(vc: progressViewController);
             
-            mainView.isHidden = true;
-            progressView.isHidden = false;
-            edtDownload.stringValue = "";
-            
-            
-         
             Downloader.init(url: buildUrlDownload(url: url)).start(compeletion: { (file, path, err) in
                 
-                self.mainView.isHidden = false;
-                self.progressView.isHidden = true;
+        
                 
                 if err != nil , file == nil{
                     let alert = NSAlert();
@@ -56,46 +86,18 @@ class StatusBarViewController: NSViewController{
                 
                 
                 
-             
+                
                 NSWorkspace.shared.openFile((file?.path)!);
+                self.replace(vc: self.queryViewController);
                 
             }) { (progress) in
                 let value = ("\(Int((progress * 100)).description)%")
-                self.lblProgress.stringValue = value;
+                self.progressViewController.lblPercents.stringValue = value;
+                
             }
             
         }
     }
-    
-    
-    
-    override func viewDidAppear() {
-        recognizerClipboard();
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        indicator.startAnimation(nil);
-    }
-    
-    
-    
-    func recognizerClipboard() {
-        
-      let valueBoard =  NSPasteboard.general.pasteboardItems?.first?.string(forType: .string);
-        
-        guard let value = valueBoard else {
-            return;
-        }
-        
-        if let url = URL(string: value) , url.host == "www.radiojavan.com" {
-            edtDownload.stringValue = url.absoluteString;
-        }
-        
-    }
-    
-    
-    
     
     
 }
@@ -121,7 +123,7 @@ extension String {
                                         range: NSRange(self.startIndex..., in: self))
             
             
-           let res = results.map {
+            let res = results.map {
                 String(self[Range($0.range, in: self)!])
             }
             
@@ -131,4 +133,6 @@ extension String {
             return String();
         }
     }
+    
+    
 }

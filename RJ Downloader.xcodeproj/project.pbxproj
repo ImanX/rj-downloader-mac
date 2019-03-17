@@ -16,6 +16,14 @@
 		7EE82217223C10530094C643 /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE82216223C10530094C643 /* Downloader.swift */; };
 		7EE82219223C1DB00094C643 /* PathManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE82218223C1DB00094C643 /* PathManager.swift */; };
 		7EE8221B223C2AA90094C643 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE8221A223C2AA90094C643 /* Global.swift */; };
+		7EE8221E223D8A1D0094C643 /* NSProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE8221D223D8A1D0094C643 /* NSProgressView.swift */; };
+		7EE82222223D93F10094C643 /* XibProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EE82221223D93F10094C643 /* XibProgressView.xib */; };
+		7EE82224223DA3020094C643 /* NSBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE82223223DA3020094C643 /* NSBaseView.swift */; };
+		7EE82226223E25BD0094C643 /* XibQueryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EE82225223E25BD0094C643 /* XibQueryView.xib */; };
+		7EE82228223E2BB00094C643 /* NSQueryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE82227223E2BB00094C643 /* NSQueryView.swift */; };
+		7EE8222F223E6F7A0094C643 /* QueryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE8222E223E6F7A0094C643 /* QueryViewController.swift */; };
+		7EE82232223E6F8A0094C643 /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE82230223E6F8A0094C643 /* ProgressViewController.swift */; };
+		7EE82235223EC4490094C643 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE82234223EC4490094C643 /* Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +40,14 @@
 		7EE82216223C10530094C643 /* Downloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Downloader.swift; sourceTree = "<group>"; };
 		7EE82218223C1DB00094C643 /* PathManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathManager.swift; sourceTree = "<group>"; };
 		7EE8221A223C2AA90094C643 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		7EE8221D223D8A1D0094C643 /* NSProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSProgressView.swift; sourceTree = "<group>"; };
+		7EE82221223D93F10094C643 /* XibProgressView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XibProgressView.xib; sourceTree = "<group>"; };
+		7EE82223223DA3020094C643 /* NSBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSBaseView.swift; sourceTree = "<group>"; };
+		7EE82225223E25BD0094C643 /* XibQueryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XibQueryView.xib; sourceTree = "<group>"; };
+		7EE82227223E2BB00094C643 /* NSQueryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSQueryView.swift; sourceTree = "<group>"; };
+		7EE8222E223E6F7A0094C643 /* QueryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryViewController.swift; sourceTree = "<group>"; };
+		7EE82230223E6F8A0094C643 /* ProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
+		7EE82234223EC4490094C643 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +80,8 @@
 		7EE821FB223BF8400094C643 /* RJ Downloader */ = {
 			isa = PBXGroup;
 			children = (
+				7EE8222D223E6F5D0094C643 /* ViewController */,
+				7EE8221C223D89DD0094C643 /* Views */,
 				7EE8220F223BF9230094C643 /* RJ Downloader.entitlements */,
 				7EE821FC223BF8400094C643 /* AppDelegate.swift */,
 				7EE82203223BF8410094C643 /* Assets.xcassets */,
@@ -76,8 +94,30 @@
 				7EE82216223C10530094C643 /* Downloader.swift */,
 				7EE82218223C1DB00094C643 /* PathManager.swift */,
 				7EE8221A223C2AA90094C643 /* Global.swift */,
+				7EE82234223EC4490094C643 /* Extension.swift */,
 			);
 			path = "RJ Downloader";
+			sourceTree = "<group>";
+		};
+		7EE8221C223D89DD0094C643 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7EE8221D223D8A1D0094C643 /* NSProgressView.swift */,
+				7EE82221223D93F10094C643 /* XibProgressView.xib */,
+				7EE82223223DA3020094C643 /* NSBaseView.swift */,
+				7EE82225223E25BD0094C643 /* XibQueryView.xib */,
+				7EE82227223E2BB00094C643 /* NSQueryView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7EE8222D223E6F5D0094C643 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7EE8222E223E6F7A0094C643 /* QueryViewController.swift */,
+				7EE82230223E6F8A0094C643 /* ProgressViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,6 +183,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EE82222223D93F10094C643 /* XibProgressView.xib in Resources */,
+				7EE82226223E25BD0094C643 /* XibQueryView.xib in Resources */,
 				7EE82204223BF8410094C643 /* Assets.xcassets in Resources */,
 				7EE82207223BF8410094C643 /* Main.storyboard in Resources */,
 			);
@@ -155,12 +197,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EE8221E223D8A1D0094C643 /* NSProgressView.swift in Sources */,
 				7EE8221B223C2AA90094C643 /* Global.swift in Sources */,
+				7EE82228223E2BB00094C643 /* NSQueryView.swift in Sources */,
+				7EE82232223E6F8A0094C643 /* ProgressViewController.swift in Sources */,
 				7EE82219223C1DB00094C643 /* PathManager.swift in Sources */,
 				7EE821FD223BF8400094C643 /* AppDelegate.swift in Sources */,
 				7EE82217223C10530094C643 /* Downloader.swift in Sources */,
 				7EE82211223BFFC90094C643 /* StatusBarProvider.swift in Sources */,
+				7EE8222F223E6F7A0094C643 /* QueryViewController.swift in Sources */,
+				7EE82235223EC4490094C643 /* Extension.swift in Sources */,
 				7EE82202223BF8400094C643 /* RJ_Downloader.xcdatamodeld in Sources */,
+				7EE82224223DA3020094C643 /* NSBaseView.swift in Sources */,
 				7EE82214223C062E0094C643 /* StatusBarViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

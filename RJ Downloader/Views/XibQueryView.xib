@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="NSQueryView" customModule="RJ_Downloader" customModuleProvider="target">
+            <connections>
+                <outlet property="btnDownload" destination="OgZ-7s-Ipg" id="cOQ-SJ-hiT"/>
+                <outlet property="edtQuery" destination="05I-Li-kh5" id="iWd-rN-mQ8"/>
+                <outlet property="view" destination="c22-O7-iKe" id="jHH-W1-eM2"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView autoresizesSubviews="NO" id="c22-O7-iKe">
+            <rect key="frame" x="0.0" y="0.0" width="370" height="140"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <searchField wantsLayer="YES" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HPp-6x-7ON">
+                    <rect key="frame" x="20" y="98" width="330" height="22"/>
+                    <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="05I-Li-kh5">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </searchFieldCell>
+                </searchField>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="OgZ-7s-Ipg">
+                    <rect key="frame" x="148" y="29" width="75" height="23"/>
+                    <buttonCell key="cell" type="roundTextured" title="Download" bezelStyle="texturedRounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="o4d-J0-hLd">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="clicked:" target="-2" id="q61-Pm-l8C"/>
+                    </connections>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstItem="OgZ-7s-Ipg" firstAttribute="top" secondItem="HPp-6x-7ON" secondAttribute="bottom" constant="46" id="ANm-LM-cfM"/>
+                <constraint firstItem="HPp-6x-7ON" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" symbolic="YES" id="KGc-Jz-6Iz"/>
+                <constraint firstItem="HPp-6x-7ON" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" constant="-39" id="Ur6-SI-fhi"/>
+                <constraint firstItem="HPp-6x-7ON" firstAttribute="centerX" secondItem="c22-O7-iKe" secondAttribute="centerX" id="c1L-gy-2Ua"/>
+                <constraint firstItem="OgZ-7s-Ipg" firstAttribute="centerX" secondItem="HPp-6x-7ON" secondAttribute="centerX" id="oy2-2J-YVs"/>
+            </constraints>
+            <point key="canvasLocation" x="136.5" y="113.5"/>
+        </customView>
+    </objects>
+</document>

@@ -17,6 +17,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+        NSApplication.shared.activate(ignoringOtherApps: true)
         statusBar.button?.image = NSImage.init(named: NSImage.Name("ic_statubar"));
         statusBar.button?.action = #selector(toggleStatusbar(_:))
         popover.behavior = .transient;
