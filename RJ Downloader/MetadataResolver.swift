@@ -19,10 +19,11 @@ class MetadataResolver {
         }
         
         return musics;
+        
     }
     
     private class func meta(url:URL)->Music{
-        let music = Music();
+        let music = Music(file: url);
         let playerItem = AVPlayerItem(url: url)
         let metadataList = playerItem.asset.commonMetadata
         for item in metadataList {
@@ -30,9 +31,11 @@ class MetadataResolver {
                 continue
             }
             
+            
             switch key.rawValue {
             case "title" : music.title = value as? String;
             case "artist":  music.artist = value as? String;
+            case "albumName" :music.album = value as? String;
             case "artwork":
                let image = NSImage(data: value as! Data)
                music.photo = image;

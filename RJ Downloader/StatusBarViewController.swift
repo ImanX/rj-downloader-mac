@@ -7,7 +7,7 @@
 //
 
 import Cocoa
-class StatusBarViewController: NSViewController{
+class StatusBarViewController: NSViewController , NSTableViewDataSource , NSTableViewDelegate{
     
     
     
@@ -15,34 +15,51 @@ class StatusBarViewController: NSViewController{
     @IBOutlet weak var container: NSView!
     
     
+    @IBOutlet weak var tableView: NSTableView!
     private lazy var queryViewController = storyboard?.instantiateController(withIdentifier: "QueryVC") as! QueryViewController;
     private lazy var progressViewController = storyboard?.instantiateController(withIdentifier: "ProgressVC") as! ProgressViewController;
+    private var vmenu: NSMenu?;
+    private var musics:[Music]?;
     
-    
-    
-    
-    @IBAction func didDownloadClick(_ sender: NSButton) {
-    
-        
-    }
     
     override func viewDidAppear() {
         super.viewDidAppear();
         queryViewController.click {
-       
-    
+            self.startDownload();
         }
     }
     
+    @IBAction func menuBarClicked(_ sender: NSButton) {
+        
+        let menu = NSMenu();
+        menu.addItem(withTitle: "About", action: nil, keyEquivalent:"");
+        menu.addItem(withTitle: "Exit", action: #selector(exit), keyEquivalent: "");
+        let point = NSPoint(x: sender.frame.origin.x , y: sender.frame.origin.y - (sender.frame.height / 2) )
+        menu.popUp(positioning: nil, at: point, in: sender.superview);
+        
+    }
     
-    @IBOutlet weak var img: NSImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
         addChild(queryViewController);
         addChild(progressViewController);
         setup(vc: queryViewController);
+        tableView.action = #selector(rowClick);
+        guard let files = PathManager.getFiles() else{
+            return;
+        }
         
+        self.musics =  MetadataResolver.getMetas(urls: files);
         
+    }
+    
+    @objc func rowClick(){
+        let url = musics?[tableView.clickedRow].file;
+        NSWorkspace.shared.openFile((url?.path)!);
+
+    }
+    @objc func exit() {
+        NSApplication.shared.terminate(self);
     }
     
     func replace(vc:NSViewController) {
@@ -56,6 +73,34 @@ class StatusBarViewController: NSViewController{
     func setup(vc:NSViewController)  {
         vc.view.frame = self.container.bounds;
         self.container.addSubview(vc.view);
+    }
+    
+    func numberOfRows(in tableView: NSTableView) -> Int {
+        return (musics?.count)!;
+    }
+    
+
+
+    func tableView(_ tableView: NSTableView, didClick tableColumn: NSTableColumn) {
+        print("adasd");
+    }
+    
+    func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
+        return 100;
+    }
+    
+    func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
+        return true;
+    }
+    
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+        let music = self.musics![row];
+        let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "defaultRow"), owner: self) as! NSMusicCell;
+        cell.imgArtwork.image = music.photo;
+        cell.lblName.stringValue = music.title!;
+        cell.lblArtist.stringValue = music.artist!;
+
+        return cell;
     }
     
     func startDownload() {
@@ -90,6 +135,7 @@ class StatusBarViewController: NSViewController{
                 
                 
                 self.progressViewController.lblPercents.stringValue = "0%"
+                self.queryViewController.edtQuery.stringValue = "";
                 NSWorkspace.shared.openFile((file?.path)!);
                 self.replace(vc: self.queryViewController);
                 
@@ -105,37 +151,6 @@ class StatusBarViewController: NSViewController{
     
 }
 
-extension StatusBarViewController {
-    static func freshController(status:NSStatusItem) -> StatusBarViewController {
-        let storyboard = NSStoryboard(name: "Main", bundle: nil);
-        guard let viewcontroller = storyboard.instantiateController(withIdentifier: "StatusBarViewController") as? StatusBarViewController else {
-            fatalError("not find viewController");
-        }
-        viewcontroller.statusBar = status;
-        return viewcontroller
-    }
-}
 
 
-extension String {
-    func matches(for regex: String) ->String {
-        
-        do {
-            let regex = try NSRegularExpression(pattern: regex)
-            let results = regex.matches(in: self,
-                                        range: NSRange(self.startIndex..., in: self))
-            
-            
-            let res = results.map {
-                String(self[Range($0.range, in: self)!])
-            }
-            
-            return res.joined();
-        } catch let error {
-            print("invalid regex: \(error.localizedDescription)")
-            return String();
-        }
-    }
-    
-    
-}
+

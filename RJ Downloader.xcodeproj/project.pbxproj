@@ -26,6 +26,7 @@
 		7EE82235223EC4490094C643 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE82234223EC4490094C643 /* Extension.swift */; };
 		7EE82237223ED0ED0094C643 /* MetadataResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE82236223ED0ED0094C643 /* MetadataResolver.swift */; };
 		7EE82239223ED1C70094C643 /* Music.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE82238223ED1C70094C643 /* Music.swift */; };
+		7EE8223B223F87040094C643 /* NSMusicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE8223A223F87040094C643 /* NSMusicCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		7EE82234223EC4490094C643 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		7EE82236223ED0ED0094C643 /* MetadataResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetadataResolver.swift; sourceTree = "<group>"; };
 		7EE82238223ED1C70094C643 /* Music.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Music.swift; sourceTree = "<group>"; };
+		7EE8223A223F87040094C643 /* NSMusicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMusicCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 				7EE82234223EC4490094C643 /* Extension.swift */,
 				7EE82236223ED0ED0094C643 /* MetadataResolver.swift */,
 				7EE82238223ED1C70094C643 /* Music.swift */,
+				7EE8223A223F87040094C643 /* NSMusicCell.swift */,
 			);
 			path = "RJ Downloader";
 			sourceTree = "<group>";
@@ -217,6 +220,7 @@
 				7EE82235223EC4490094C643 /* Extension.swift in Sources */,
 				7EE82202223BF8400094C643 /* RJ_Downloader.xcdatamodeld in Sources */,
 				7EE82224223DA3020094C643 /* NSBaseView.swift in Sources */,
+				7EE8223B223F87040094C643 /* NSMusicCell.swift in Sources */,
 				7EE82214223C062E0094C643 /* StatusBarViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

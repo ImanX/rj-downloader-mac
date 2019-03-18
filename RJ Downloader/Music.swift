@@ -9,7 +9,16 @@
 import Foundation
 import Cocoa
 class Music {
+    
+    
+    init(file:URL) {
+        self.file = file;
+    }
     public var title:String?;
     public var artist:String?;
+    public var album:String?;
+    public var file:URL?;
+    
+
     public var photo:NSImage?
 }
