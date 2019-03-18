@@ -24,6 +24,8 @@
 		7EE8222F223E6F7A0094C643 /* QueryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE8222E223E6F7A0094C643 /* QueryViewController.swift */; };
 		7EE82232223E6F8A0094C643 /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE82230223E6F8A0094C643 /* ProgressViewController.swift */; };
 		7EE82235223EC4490094C643 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE82234223EC4490094C643 /* Extension.swift */; };
+		7EE82237223ED0ED0094C643 /* MetadataResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE82236223ED0ED0094C643 /* MetadataResolver.swift */; };
+		7EE82239223ED1C70094C643 /* Music.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE82238223ED1C70094C643 /* Music.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		7EE8222E223E6F7A0094C643 /* QueryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryViewController.swift; sourceTree = "<group>"; };
 		7EE82230223E6F8A0094C643 /* ProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
 		7EE82234223EC4490094C643 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		7EE82236223ED0ED0094C643 /* MetadataResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetadataResolver.swift; sourceTree = "<group>"; };
+		7EE82238223ED1C70094C643 /* Music.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Music.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +99,8 @@
 				7EE82218223C1DB00094C643 /* PathManager.swift */,
 				7EE8221A223C2AA90094C643 /* Global.swift */,
 				7EE82234223EC4490094C643 /* Extension.swift */,
+				7EE82236223ED0ED0094C643 /* MetadataResolver.swift */,
+				7EE82238223ED1C70094C643 /* Music.swift */,
 			);
 			path = "RJ Downloader";
 			sourceTree = "<group>";
@@ -199,8 +205,10 @@
 			files = (
 				7EE8221E223D8A1D0094C643 /* NSProgressView.swift in Sources */,
 				7EE8221B223C2AA90094C643 /* Global.swift in Sources */,
+				7EE82239223ED1C70094C643 /* Music.swift in Sources */,
 				7EE82228223E2BB00094C643 /* NSQueryView.swift in Sources */,
 				7EE82232223E6F8A0094C643 /* ProgressViewController.swift in Sources */,
+				7EE82237223ED0ED0094C643 /* MetadataResolver.swift in Sources */,
 				7EE82219223C1DB00094C643 /* PathManager.swift in Sources */,
 				7EE821FD223BF8400094C643 /* AppDelegate.swift in Sources */,
 				7EE82217223C10530094C643 /* Downloader.swift in Sources */,

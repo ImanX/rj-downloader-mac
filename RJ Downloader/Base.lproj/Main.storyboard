@@ -85,10 +85,16 @@
                                     <constraint firstAttribute="height" constant="150" id="NoK-Eq-1X4"/>
                                 </constraints>
                             </containerView>
+                            <box autoresizesSubviews="NO" appearanceType="darkAqua" verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="ZX0-ax-Xpc">
+                                <rect key="frame" x="20" y="322" width="334" height="5"/>
+                            </box>
                         </subviews>
                         <constraints>
                             <constraint firstItem="6fD-8N-20U" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="8Iw-v0-7zn"/>
                             <constraint firstItem="6fD-8N-20U" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="9tX-5R-ICL"/>
+                            <constraint firstItem="ZX0-ax-Xpc" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="I3W-ZZ-sLf"/>
+                            <constraint firstAttribute="trailing" secondItem="ZX0-ax-Xpc" secondAttribute="trailing" constant="20" id="Piv-VO-D8l"/>
+                            <constraint firstItem="ZX0-ax-Xpc" firstAttribute="top" secondItem="6fD-8N-20U" secondAttribute="bottom" constant="8" id="bXh-Bc-NTF"/>
                             <constraint firstAttribute="trailing" secondItem="6fD-8N-20U" secondAttribute="trailing" id="mjg-hG-Ess"/>
                         </constraints>
                     </view>

@@ -29,11 +29,13 @@ class StatusBarViewController: NSViewController{
     override func viewDidAppear() {
         super.viewDidAppear();
         queryViewController.click {
-            self.startDownload();
+       
+    
         }
     }
     
     
+    @IBOutlet weak var img: NSImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
         addChild(queryViewController);
@@ -87,6 +89,7 @@ class StatusBarViewController: NSViewController{
                 
                 
                 
+                self.progressViewController.lblPercents.stringValue = "0%"
                 NSWorkspace.shared.openFile((file?.path)!);
                 self.replace(vc: self.queryViewController);
                 
