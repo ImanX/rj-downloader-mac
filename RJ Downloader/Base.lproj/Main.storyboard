@@ -344,6 +344,73 @@
             </objects>
             <point key="canvasLocation" x="255" y="1257"/>
         </scene>
+        <!--About-->
+        <scene sceneID="8A9-5k-UBA">
+            <objects>
+                <viewController title="About" storyboardIdentifier="aboutVC" showSeguePresentationStyle="single" id="6zP-GU-T6N" customClass="AboutViewController" customModule="RJ_Downloader" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" autoresizesSubviews="NO" id="anm-I6-wH0">
+                        <rect key="frame" x="0.0" y="0.0" width="403" height="112"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xfQ-UH-2v7">
+                                <rect key="frame" x="147" y="75" width="108" height="17"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="RJ Downloader" id="5Xr-ge-j2X">
+                                    <font key="font" metaFont="systemBold"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ad2-PB-xqh">
+                                <rect key="frame" x="178" y="59" width="47" height="14"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Version" id="AUF-N4-daE">
+                                    <font key="font" metaFont="systemLight" size="11"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="Cb0-j9-ftq">
+                                <rect key="frame" x="119" y="42" width="164" height="14"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Developed by Alireza Tarazani" id="IuP-JR-SJ2">
+                                    <font key="font" metaFont="systemLight" size="11"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button translatesAutoresizingMaskIntoConstraints="NO" id="3LV-pE-sDH">
+                                <rect key="frame" x="187" y="4" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="6TA-ZP-0kc"/>
+                                    <constraint firstAttribute="height" constant="30" id="vQ5-CW-DVp"/>
+                                </constraints>
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="ic_twitter" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="qSe-FD-snR">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="click:" target="6zP-GU-T6N" id="E3D-Rz-rIC"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="ad2-PB-xqh" firstAttribute="centerX" secondItem="anm-I6-wH0" secondAttribute="centerX" id="7W5-CG-Noo"/>
+                            <constraint firstAttribute="trailing" secondItem="xfQ-UH-2v7" secondAttribute="trailing" constant="150" id="OcL-BV-Tg0"/>
+                            <constraint firstItem="xfQ-UH-2v7" firstAttribute="top" secondItem="anm-I6-wH0" secondAttribute="top" constant="20" id="Uju-fW-JpD"/>
+                            <constraint firstItem="3LV-pE-sDH" firstAttribute="top" secondItem="Cb0-j9-ftq" secondAttribute="bottom" constant="8" symbolic="YES" id="ZsL-c2-eRo"/>
+                            <constraint firstItem="xfQ-UH-2v7" firstAttribute="leading" secondItem="anm-I6-wH0" secondAttribute="leading" constant="149" id="eYF-n0-3I5"/>
+                            <constraint firstItem="Cb0-j9-ftq" firstAttribute="centerX" secondItem="xfQ-UH-2v7" secondAttribute="centerX" id="f6C-wI-0eg"/>
+                            <constraint firstItem="3LV-pE-sDH" firstAttribute="centerX" secondItem="anm-I6-wH0" secondAttribute="centerX" id="hhy-YE-wJh"/>
+                            <constraint firstItem="ad2-PB-xqh" firstAttribute="top" secondItem="xfQ-UH-2v7" secondAttribute="bottom" constant="2" id="ubJ-Po-75K"/>
+                            <constraint firstItem="Cb0-j9-ftq" firstAttribute="top" secondItem="xfQ-UH-2v7" secondAttribute="bottom" constant="19" id="yoR-dM-J0V"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="lblVersion" destination="ad2-PB-xqh" id="VtK-14-CQh"/>
+                    </connections>
+                </viewController>
+                <customObject id="dSX-my-rpv" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1276.5" y="445"/>
+        </scene>
         <!--No History View Controller-->
         <scene sceneID="arq-8G-ky5">
             <objects>
@@ -376,5 +443,6 @@
         <image name="NSAdvanced" width="32" height="32"/>
         <image name="NSGoForwardTemplate" width="9" height="12"/>
         <image name="NSListViewTemplate" width="14" height="10"/>
+        <image name="ic_twitter" width="1687" height="1687"/>
     </resources>
 </document>

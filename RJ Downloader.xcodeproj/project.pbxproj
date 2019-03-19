@@ -29,6 +29,7 @@
 		7EE8223B223F87040094C643 /* NSMusicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE8223A223F87040094C643 /* NSMusicCell.swift */; };
 		7EE82245224122F00094C643 /* NoHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE82244224122F00094C643 /* NoHistoryViewController.swift */; };
 		7EE822482241232C0094C643 /* HistorySongsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE822462241232C0094C643 /* HistorySongsViewController.swift */; };
+		7EE8224B2241378D0094C643 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE8224A2241378D0094C643 /* AboutViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		7EE8223A223F87040094C643 /* NSMusicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMusicCell.swift; sourceTree = "<group>"; };
 		7EE82244224122F00094C643 /* NoHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoHistoryViewController.swift; sourceTree = "<group>"; };
 		7EE822462241232C0094C643 /* HistorySongsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorySongsViewController.swift; sourceTree = "<group>"; };
+		7EE8224A2241378D0094C643 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 				7EE82230223E6F8A0094C643 /* ProgressViewController.swift */,
 				7EE82244224122F00094C643 /* NoHistoryViewController.swift */,
 				7EE822462241232C0094C643 /* HistorySongsViewController.swift */,
+				7EE8224A2241378D0094C643 /* AboutViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 				7EE82219223C1DB00094C643 /* PathManager.swift in Sources */,
 				7EE821FD223BF8400094C643 /* AppDelegate.swift in Sources */,
 				7EE82217223C10530094C643 /* Downloader.swift in Sources */,
+				7EE8224B2241378D0094C643 /* AboutViewController.swift in Sources */,
 				7EE82211223BFFC90094C643 /* StatusBarProvider.swift in Sources */,
 				7EE8222F223E6F7A0094C643 /* QueryViewController.swift in Sources */,
 				7EE82235223EC4490094C643 /* Extension.swift in Sources */,
@@ -375,7 +379,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.imanx.github.rjdownloadeer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.imanx.github.rjdownloader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 			};
@@ -394,7 +398,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.imanx.github.rjdownloadeer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.imanx.github.rjdownloader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 			};

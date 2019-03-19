@@ -15,8 +15,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     private let statusBar:NSStatusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength);
     private let popover = NSPopover();
 
+
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+    
         NSApplication.shared.activate(ignoringOtherApps: true)
         statusBar.button?.image = NSImage.init(named: NSImage.Name("ic_statubar"));
         statusBar.button?.action = #selector(toggleStatusbar(_:))

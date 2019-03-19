@@ -35,7 +35,7 @@ class StatusBarViewController: NSViewController, QueryViewControllerDelegate, Hi
     @IBAction func menuBarClicked(_ sender: NSButton) {
         
         let menu = NSMenu();
-        menu.addItem(withTitle: "About", action: nil, keyEquivalent:"");
+        menu.addItem(withTitle: "About", action: #selector(about), keyEquivalent:"");
         menu.addItem(withTitle: "Exit", action: #selector(exit), keyEquivalent: "");
         let point = NSPoint(x: sender.frame.origin.x , y: sender.frame.origin.y - (sender.frame.height / 2) )
         menu.popUp(positioning: nil, at: point, in: sender.superview);
@@ -62,6 +62,11 @@ class StatusBarViewController: NSViewController, QueryViewControllerDelegate, Hi
    
     @objc func exit() {
         NSApplication.shared.terminate(self);
+    }
+    
+    @objc func about(){
+        let vc = storyboard?.instantiateController(withIdentifier: "aboutVC") as! AboutViewController;
+        presentAsModalWindow(vc);
     }
     
 
