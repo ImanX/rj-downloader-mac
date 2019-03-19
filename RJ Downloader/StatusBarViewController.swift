@@ -7,26 +7,29 @@
 //
 
 import Cocoa
-class StatusBarViewController: NSViewController , NSTableViewDataSource , NSTableViewDelegate{
+class StatusBarViewController: NSViewController, QueryViewControllerDelegate, HistorySongsViewControllerDelegate{
+   
+    
+ 
+    @IBOutlet weak var footerContainer: NSView!
     
     
     
     internal var statusBar:NSStatusItem!;
     @IBOutlet weak var container: NSView!
     
-    
-    @IBOutlet weak var tableView: NSTableView!
     private lazy var queryViewController = storyboard?.instantiateController(withIdentifier: "QueryVC") as! QueryViewController;
     private lazy var progressViewController = storyboard?.instantiateController(withIdentifier: "ProgressVC") as! ProgressViewController;
+    private lazy var hisotyViewController = storyboard?.instantiateController(withIdentifier: "historyVC") as! HistorySongsViewController;
+    private lazy var noHisotyViewController = storyboard?.instantiateController(withIdentifier: "NohistoryVC") as! NoHistoryViewController;
+    
+    
     private var vmenu: NSMenu?;
-    private var musics:[Music]?;
     
     
     override func viewDidAppear() {
         super.viewDidAppear();
-        queryViewController.click {
-            self.startDownload();
-        }
+        
     }
     
     @IBAction func menuBarClicked(_ sender: NSButton) {
@@ -43,109 +46,75 @@ class StatusBarViewController: NSViewController , NSTableViewDataSource , NSTabl
         super.viewDidLoad()
         addChild(queryViewController);
         addChild(progressViewController);
-        setup(vc: queryViewController);
-        tableView.action = #selector(rowClick);
-        guard let files = PathManager.getFiles() else{
-            return;
-        }
+        addChild(noHisotyViewController);
+        addChild(hisotyViewController);
+
+
+        setup(container: container,vc: queryViewController);
+        setup(container: footerContainer,vc: noHisotyViewController);
+
         
-        self.musics =  MetadataResolver.getMetas(urls: files);
-        
+        queryViewController.delegate = self;
+        hisotyViewController.delegate = self;
+        hisotyViewController.reloadData();
     }
     
-    @objc func rowClick(){
-        let url = musics?[tableView.clickedRow].file;
-        NSWorkspace.shared.openFile((url?.path)!);
-
-    }
+   
     @objc func exit() {
         NSApplication.shared.terminate(self);
     }
     
-    func replace(vc:NSViewController) {
+
+    func didSuccessDownload(urlOfFile: URL, urlOfPath: URL) {
+        self.progressViewController.lblPercents.stringValue = "0%"
+        NSWorkspace.shared.openFile((urlOfFile.path));
+        self.hisotyViewController.reloadData();
+        self.replace(container: container,vc: self.queryViewController);
+    }
+    
+    func didDownloadClick(sender: NSButton) {
+        
+    }
+    
+    func didStartDownload() {
+        self.replace(container: container,vc: self.progressViewController);
+
+    }
+    
+    func didFailureDownload() {
+        let alert = NSAlert();
+        alert.messageText = "Application can'nt download song :(";
+        alert.alertStyle = NSAlert.Style.warning;
+        alert.icon = NSImage(named: "NSCaution");
+        alert.beginSheetModal(for: self.view.window!, completionHandler: nil)
+    }
+    
+    
+    
+    func didProgressDownload(percents: Float, percentsAsInt: Int) {
+      progressViewController.lblPercents.stringValue  = "\(percentsAsInt)%";
+    }
+    
+    
+    func didReloadData(hasHistory: Bool, data: [Music]?) {
+        replace(container: footerContainer, vc: hasHistory ? hisotyViewController : noHisotyViewController);
+    }
+    
+
+    
+    
+    
+    func replace(container:NSView, vc:NSViewController) {
         for view in container.subviews{
             view.removeFromSuperview();
         }
         
-        self.container.addSubview(vc.view);
+        container.addSubview(vc.view);
     }
     
-    func setup(vc:NSViewController)  {
-        vc.view.frame = self.container.bounds;
-        self.container.addSubview(vc.view);
-    }
-    
-    func numberOfRows(in tableView: NSTableView) -> Int {
-        return (musics?.count)!;
-    }
-    
-
-
-    func tableView(_ tableView: NSTableView, didClick tableColumn: NSTableColumn) {
-        print("adasd");
-    }
-    
-    func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
-        return 100;
-    }
-    
-    func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
-        return true;
-    }
-    
-    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        let music = self.musics![row];
-        let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "defaultRow"), owner: self) as! NSMusicCell;
-        cell.imgArtwork.image = music.photo;
-        cell.lblName.stringValue = music.title!;
-        cell.lblArtist.stringValue = music.artist!;
-
-        return cell;
-    }
-    
-    func startDownload() {
-        
-        
-        let value = queryViewController.edtQuery.stringValue;
-        
-        if let url = URL(string: value) ,
-            url.host != nil ,
-            url.host == "www.radiojavan.com",
-            !value.isEmpty{
-            
-        
-            
-            
-            replace(vc: progressViewController);
-            
-            Downloader.init(url: buildUrlDownload(url: url)).start(compeletion: { (file, path, err) in
-                
-        
-                
-                if err != nil , file == nil{
-                    let alert = NSAlert();
-                    alert.messageText = "Application can'nt download song :(";
-                    alert.alertStyle = NSAlert.Style.warning;
-                    alert.icon = NSImage(named: "NSCaution");
-                    alert.beginSheetModal(for: self.view.window!, completionHandler: nil)
-                    return;
-                }
-                
-                
-                
-                
-                self.progressViewController.lblPercents.stringValue = "0%"
-                self.queryViewController.edtQuery.stringValue = "";
-                NSWorkspace.shared.openFile((file?.path)!);
-                self.replace(vc: self.queryViewController);
-                
-            }) { (progress) in
-                let value = ("\(Int((progress * 100)).description)%")
-                self.progressViewController.lblPercents.stringValue = value;
-                
-            }
-            
-        }
+    func setup(container:NSView,vc:NSViewController)  {
+        vc.view.frame = container.bounds;
+        container.addSubview(vc.view);
     }
     
     

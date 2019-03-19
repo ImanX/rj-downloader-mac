@@ -27,6 +27,8 @@
 		7EE82237223ED0ED0094C643 /* MetadataResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE82236223ED0ED0094C643 /* MetadataResolver.swift */; };
 		7EE82239223ED1C70094C643 /* Music.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE82238223ED1C70094C643 /* Music.swift */; };
 		7EE8223B223F87040094C643 /* NSMusicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE8223A223F87040094C643 /* NSMusicCell.swift */; };
+		7EE82245224122F00094C643 /* NoHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE82244224122F00094C643 /* NoHistoryViewController.swift */; };
+		7EE822482241232C0094C643 /* HistorySongsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE822462241232C0094C643 /* HistorySongsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +56,8 @@
 		7EE82236223ED0ED0094C643 /* MetadataResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetadataResolver.swift; sourceTree = "<group>"; };
 		7EE82238223ED1C70094C643 /* Music.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Music.swift; sourceTree = "<group>"; };
 		7EE8223A223F87040094C643 /* NSMusicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMusicCell.swift; sourceTree = "<group>"; };
+		7EE82244224122F00094C643 /* NoHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoHistoryViewController.swift; sourceTree = "<group>"; };
+		7EE822462241232C0094C643 /* HistorySongsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorySongsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +129,8 @@
 			children = (
 				7EE8222E223E6F7A0094C643 /* QueryViewController.swift */,
 				7EE82230223E6F8A0094C643 /* ProgressViewController.swift */,
+				7EE82244224122F00094C643 /* NoHistoryViewController.swift */,
+				7EE822462241232C0094C643 /* HistorySongsViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -220,7 +226,9 @@
 				7EE82235223EC4490094C643 /* Extension.swift in Sources */,
 				7EE82202223BF8400094C643 /* RJ_Downloader.xcdatamodeld in Sources */,
 				7EE82224223DA3020094C643 /* NSBaseView.swift in Sources */,
+				7EE82245224122F00094C643 /* NoHistoryViewController.swift in Sources */,
 				7EE8223B223F87040094C643 /* NSMusicCell.swift in Sources */,
+				7EE822482241232C0094C643 /* HistorySongsViewController.swift in Sources */,
 				7EE82214223C062E0094C643 /* StatusBarViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

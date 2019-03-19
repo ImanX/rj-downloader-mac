@@ -12,14 +12,14 @@ class QueryViewController: NSViewController {
 
     @IBOutlet weak var edtQuery: NSSearchField!
     @IBOutlet weak var btnDownload: NSButton!
-    private var action:(()->Void)?
+    internal var delegate:QueryViewControllerDelegate!;
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    func click(action:@escaping ()->Void) {
-        self.action = action;
-    }
+   
     
     override func viewDidAppear() {
         recognizerClipboard();
@@ -27,8 +27,52 @@ class QueryViewController: NSViewController {
     }
     
     @IBAction func clicked(_ sender: Any) {
-        if let act = action{
-            act();
+        self.delegate.didDownloadClick(sender: sender as! NSButton);
+        startDownload();
+        
+    }
+    
+    func startDownload() {
+         
+        
+        let value = self.edtQuery.stringValue;
+        
+        if let url = URL(string: value) ,
+            url.host != nil ,
+            url.host == "www.radiojavan.com",
+            !value.isEmpty{
+            
+            
+        
+            self.delegate.didStartDownload();
+            
+            
+            
+            Downloader.init(url: buildUrlDownload(url: url)).start(compeletion: { (file, path, err) in
+                
+                
+                
+                if err != nil , file == nil{
+                    self.delegate.didFailureDownload();
+                    return;
+                }
+                
+                
+                
+                self.delegate.didSuccessDownload(urlOfFile: file!, urlOfPath: path!);
+                self.edtQuery.stringValue = "";
+
+
+                
+            }) { (progress) in
+                let percents = progress * 100;
+                let percentsAsInt = Int(percents);
+                
+                self.delegate.didProgressDownload(percents: percents, percentsAsInt: percentsAsInt);
+
+                
+            }
+            
         }
     }
     
@@ -45,4 +89,14 @@ class QueryViewController: NSViewController {
         }
         
     }
+}
+
+
+
+protocol QueryViewControllerDelegate {
+    func didDownloadClick(sender: NSButton);
+    func didStartDownload();
+    func didFailureDownload();
+    func didSuccessDownload(urlOfFile:URL , urlOfPath:URL);
+    func didProgressDownload(percents:Float , percentsAsInt:Int);
 }
