@@ -59,14 +59,15 @@ class PathManager {
             path.appendPathComponent("mp3s");
             let dirs = try fileManager.contentsOfDirectory(at: path, includingPropertiesForKeys: nil, options: []);
             
-            if dirs.count == 0{
-                return nil;
-            }
             
             let files = dirs.filter { (url) -> Bool in
                 return  url.pathExtension == "mp3";
             }
             
+            if files.count == 0{
+                return nil;
+            }
+
             
             
             return files;
