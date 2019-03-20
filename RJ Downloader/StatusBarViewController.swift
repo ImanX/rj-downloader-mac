@@ -63,7 +63,7 @@ class StatusBarViewController: NSViewController, QueryViewControllerDelegate, Hi
         hisotyViewController.delegate = self;
         hisotyViewController.reloadData();
         
-        menus.addItem(withTitle: "Open RJ Downloader on Startup", action: #selector(openAsStartup(_:)), keyEquivalent: "");
+      //  menus.addItem(withTitle: "Open RJ Downloader on Startup", action: #selector(openAsStartup(_:)), keyEquivalent: "");
         menus.addItem(NSMenuItem.separator());
         menus.addItem(withTitle: "Donate", action: #selector(donate), keyEquivalent: "");
         menus.addItem(withTitle: "About", action: #selector(about), keyEquivalent:"A");
@@ -71,9 +71,8 @@ class StatusBarViewController: NSViewController, QueryViewControllerDelegate, Hi
         menus.addItem(withTitle: "Exit", action: #selector(exit), keyEquivalent: "Q");
         
         
-        print("userdef \(userDefault.bool(forKey: "isStartupEnabled"))");
         
-        menus.items[0].state = userDefault.bool(forKey: "isStartupEnabled") ? .on : .off;
+      //  menus.items[0].state = userDefault.bool(forKey: "isStartupEnabled") ? .on : .off;
     }
     
     @objc func openAsStartup(_ sender:NSMenuItem){

@@ -11,7 +11,6 @@
 		7EE82202223BF8400094C643 /* RJ_Downloader.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7EE82200223BF8400094C643 /* RJ_Downloader.xcdatamodeld */; };
 		7EE82204223BF8410094C643 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7EE82203223BF8410094C643 /* Assets.xcassets */; };
 		7EE82207223BF8410094C643 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EE82205223BF8410094C643 /* Main.storyboard */; };
-		7EE82211223BFFC90094C643 /* StatusBarProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE82210223BFFC90094C643 /* StatusBarProvider.swift */; };
 		7EE82214223C062E0094C643 /* StatusBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE82212223C062E0094C643 /* StatusBarViewController.swift */; };
 		7EE82217223C10530094C643 /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE82216223C10530094C643 /* Downloader.swift */; };
 		7EE82219223C1DB00094C643 /* PathManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE82218223C1DB00094C643 /* PathManager.swift */; };
@@ -41,7 +40,6 @@
 		7EE82208223BF8410094C643 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7EE82209223BF8410094C643 /* RJ_Downloader.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RJ_Downloader.entitlements; sourceTree = "<group>"; };
 		7EE8220F223BF9230094C643 /* RJ Downloader.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "RJ Downloader.entitlements"; sourceTree = "<group>"; };
-		7EE82210223BFFC90094C643 /* StatusBarProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarProvider.swift; sourceTree = "<group>"; };
 		7EE82212223C062E0094C643 /* StatusBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarViewController.swift; sourceTree = "<group>"; };
 		7EE82216223C10530094C643 /* Downloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Downloader.swift; sourceTree = "<group>"; };
 		7EE82218223C1DB00094C643 /* PathManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathManager.swift; sourceTree = "<group>"; };
@@ -101,7 +99,6 @@
 				7EE82208223BF8410094C643 /* Info.plist */,
 				7EE82209223BF8410094C643 /* RJ_Downloader.entitlements */,
 				7EE82200223BF8400094C643 /* RJ_Downloader.xcdatamodeld */,
-				7EE82210223BFFC90094C643 /* StatusBarProvider.swift */,
 				7EE82212223C062E0094C643 /* StatusBarViewController.swift */,
 				7EE82216223C10530094C643 /* Downloader.swift */,
 				7EE82218223C1DB00094C643 /* PathManager.swift */,
@@ -225,7 +222,6 @@
 				7EE821FD223BF8400094C643 /* AppDelegate.swift in Sources */,
 				7EE82217223C10530094C643 /* Downloader.swift in Sources */,
 				7EE8224B2241378D0094C643 /* AboutViewController.swift in Sources */,
-				7EE82211223BFFC90094C643 /* StatusBarProvider.swift in Sources */,
 				7EE8222F223E6F7A0094C643 /* QueryViewController.swift in Sources */,
 				7EE82235223EC4490094C643 /* Extension.swift in Sources */,
 				7EE82202223BF8400094C643 /* RJ_Downloader.xcdatamodeld in Sources */,
