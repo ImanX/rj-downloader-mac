@@ -420,8 +420,8 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Few-dY-wYv">
-                                <rect key="frame" x="59" y="154" width="257" height="21"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="No History Songs Donwloaded" id="Ujy-cQ-QOG">
+                                <rect key="frame" x="49" y="154" width="277" height="21"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="No songs have been downloaded" id="Ujy-cQ-QOG">
                                     <font key="font" metaFont="systemBold" size="17"/>
                                     <color key="textColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>

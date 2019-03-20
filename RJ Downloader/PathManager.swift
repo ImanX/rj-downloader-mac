@@ -41,7 +41,7 @@ class PathManager {
         }
         
         do{
-           try! fileManager.moveItem(at: of, to: destinationFile)
+            try! fileManager.moveItem(at: of, to: destinationFile)
             return destinationFile;
         }catch{
             return nil;
@@ -54,14 +54,19 @@ class PathManager {
         guard var path = fileManager.urls(for: .downloadsDirectory, in: .userDomainMask).first else{
             return nil;
         }
-       
+        
         do{
             path.appendPathComponent("mp3s");
             let dirs = try fileManager.contentsOfDirectory(at: path, includingPropertiesForKeys: nil, options: []);
             
-            let files = dirs.filter { (url) -> Bool in
-               return  url.pathExtension == "mp3";
+            if dirs.count == 0{
+                return nil;
             }
+            
+            let files = dirs.filter { (url) -> Bool in
+                return  url.pathExtension == "mp3";
+            }
+            
             
             
             return files;
