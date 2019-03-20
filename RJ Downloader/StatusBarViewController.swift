@@ -7,16 +7,19 @@
 //
 
 import Cocoa
+import ServiceManagement
 class StatusBarViewController: NSViewController, QueryViewControllerDelegate, HistorySongsViewControllerDelegate{
    
+    private var vmenu: NSMenu?;
+    private let menus = NSMenu();
+    private let userDefault = UserDefaults.standard;
+    internal var statusBar:NSStatusItem!;
     
+
  
     @IBOutlet weak var footerContainer: NSView!
-    
-    
-    
-    internal var statusBar:NSStatusItem!;
     @IBOutlet weak var container: NSView!
+    
     
     private lazy var queryViewController = storyboard?.instantiateController(withIdentifier: "QueryVC") as! QueryViewController;
     private lazy var progressViewController = storyboard?.instantiateController(withIdentifier: "ProgressVC") as! ProgressViewController;
@@ -24,22 +27,24 @@ class StatusBarViewController: NSViewController, QueryViewControllerDelegate, Hi
     private lazy var noHisotyViewController = storyboard?.instantiateController(withIdentifier: "NohistoryVC") as! NoHistoryViewController;
     
     
-    private var vmenu: NSMenu?;
     
     
     override func viewDidAppear() {
         super.viewDidAppear();
         
+        
+        
+     
+        
+        
+      
+        
     }
     
+    
     @IBAction func menuBarClicked(_ sender: NSButton) {
-        
-        let menu = NSMenu();
-        menu.addItem(withTitle: "About", action: #selector(about), keyEquivalent:"");
-        menu.addItem(withTitle: "Exit", action: #selector(exit), keyEquivalent: "");
         let point = NSPoint(x: sender.frame.origin.x , y: sender.frame.origin.y - (sender.frame.height / 2) )
-        menu.popUp(positioning: nil, at: point, in: sender.superview);
-        
+        menus.popUp(positioning: nil, at: point, in: sender.superview);
     }
     
     override func viewDidLoad() {
@@ -57,8 +62,33 @@ class StatusBarViewController: NSViewController, QueryViewControllerDelegate, Hi
         queryViewController.delegate = self;
         hisotyViewController.delegate = self;
         hisotyViewController.reloadData();
+        
+        menus.addItem(withTitle: "Open RJ Downloader on Startup", action: #selector(openAsStartup(_:)), keyEquivalent: "");
+        menus.addItem(NSMenuItem.separator());
+        menus.addItem(withTitle: "Donate", action: #selector(donate), keyEquivalent: "");
+        menus.addItem(withTitle: "About", action: #selector(about), keyEquivalent:"A");
+        menus.addItem(NSMenuItem.separator());
+        menus.addItem(withTitle: "Exit", action: #selector(exit), keyEquivalent: "Q");
+        
+        
+        print("userdef \(userDefault.bool(forKey: "isStartupEnabled"))");
+        
+        menus.items[0].state = userDefault.bool(forKey: "isStartupEnabled") ? .on : .off;
     }
     
+    @objc func openAsStartup(_ sender:NSMenuItem){
+        let state = sender.state;
+        let bundle = Bundle.main.bundleIdentifier;
+        let isChecked = !Bool(truncating: NSNumber(value: state.rawValue));
+        sender.state = (state == .on) ? .off : .on;
+        userDefault.set(isChecked, forKey: "isStartupEnabled");
+        SMLoginItemSetEnabled(bundle! as CFString, !isChecked);
+    }
+    
+    @objc func donate(){
+        let url = URL(string: "https://zarinp.al/@imanX");
+        NSWorkspace.shared.open(url!);
+    }
    
     @objc func exit() {
         NSApplication.shared.terminate(self);
